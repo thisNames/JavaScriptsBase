@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取HTML元素的方式</title>
+</head>
+
+<body>
+    <div id="one">
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <div class="two">
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <div class="two" name="last">
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <p class="two" name="last">文本文档对象模型 Document Object Model 简称 DOM</p>
+
+    <h1 name="kkk">AA</h1>
+
+    <!-- 代码一开始从上往下加载，一般使用事件来调用 -->
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", (e) =>
+        {
+            console.log(e);
+        })
+        // undefined 未定义
+        var person = undefined;
+        // null 空对象，指向了一个空的对象，不能调用里面的属性变量
+        person = null;
+        // 创建对象
+        person = new Object();
+        // 创建属性变量
+        person.name = "rllo";
+        console.log(person.name);
+
+        // 使用 document 对象来获取文档对象模型
+        /*
+                getElementById                  id
+                getElementsByTagName            标签名,有多个   []  (可以通过一个标签对象调用)
+                getElementsByClassName          类名称          []  (可以通过一个标签对象调用)
+                getElementsByName               标签name属性    []                                              
+        */
+        // 1.使用id 全局只有一个 
+        var divforId = document.getElementById("one");
+        console.log(divforId);
+
+        // 查找所有的子元素 span    []
+        divforId.getElementsByTagName("span");
+
+        // 2.使用标签元素 返回多个    []
+        // 可以通过一个标签对象调用       (搜索所有子标签)
+        var divforTarget = document.getElementsByTagName("div");
+        console.log(divforTarget.length);
+
+        // 3.使用类名获取  返回多个    []
+        // 可以通过一个标签对象调用      (搜索所有子标签)
+        var forClass = document.getElementsByClassName("two");
+        console.log(forClass.length);
+
+
+        // 4.使用标签的name属性查找 返回多个 []
+        var forName = document.getElementsByName("last");
+        console.log(forName.length);
+
+        console.log(document.getElementsByName("kkk"));
+
+    </script>
+</body>
+
+</html>

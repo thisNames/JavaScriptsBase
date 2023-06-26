@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM添加事件</title>
+</head>
+
+<body onload="init()" onunload="unload()" onbeforeunload="return unbeforeunload()">
+    <!-- 通过onclick 属性添加事件 -->
+    <div onclick="console.log('点击了div');">DOM 事件div</div>
+    <div onclick="myClick();">DOM 事件div</div>
+
+    <span id="myspan">DOM 事件span</span>
+
+    <p onmouseover="console.log('鼠标划入p标签')" onmouseout="console.log('鼠标划出p标签')" onmousedown="console.log('鼠标按下p标签')">DOM
+        事件p</p>
+
+    <a>DOM 事件a</a>
+
+    <a href="https://www.rlloedu.com/">进入rllo学院</a>
+
+    <input type="text" onchange="dataChang(this)">
+
+    <script type="text/javascript">
+        // 添加事件的三种方式
+        /*
+            通过
+                onclcik     添加事件
+                js代码
+        */
+        function myClick()
+        {
+            console.log("function click!");
+        }
+
+        // 使用js代码   
+        // 1.onclick = 匿名函数，使用js代码添加
+        var mySpan = document.getElementById("myspan");
+        mySpan.onclick = function ()
+        {
+            console.log("span 被点击了");;
+        }
+        // 2.addEventListener("事件"，"函数") 添加监听事件
+        mySpan.addEventListener("click", spanClick);
+        function spanClick()
+        {
+            console.log("function span click");
+        }
+
+        // DOM 常见的事件
+        /*
+            onload              页面加载完成时
+            onunload            网页被卸载时
+            onbeforeunload      网页被卸载时，弹窗，返回值
+            onchang             数据改变时，数据检测
+            onmouseover         鼠标进入时
+            onmouseout          鼠标划出时
+        */
+        function init()
+        {
+            console.log("网页加载完成！");
+        }
+        function unload()
+        {
+            // alert("网页被卸载了！");
+            console.log("网页被卸载了！");
+            // return "网页被卸载了！";
+        }
+        function unbeforeunload(input)
+        {
+            console.log("离开此网页，进入rllo学院");
+            return "离开此网页，进入rllo学院";
+        }
+        function dataChang(input)
+        {
+            console.log("你修改了数据：" + input.value);
+        }
+
+    </script>
+</body>
+
+</html>

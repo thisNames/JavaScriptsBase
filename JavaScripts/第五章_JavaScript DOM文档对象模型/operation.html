@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作HTML标签</title>
+</head>
+
+<body>
+    <div>
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <div>
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <div>
+        <span>文本文档对象模型 Document Object Model 简称 DOM</span>
+    </div>
+    <p id="one">文本文档对象模型 Document Object Model 简称 DOM</p>
+    <font id="myfont" size="5">
+        文本文档对象模型 Document Object Model 简称 DOM
+    </font>
+    <a href="#" id="mya">进入rllo学院</a>
+    <img src="../img/圣诞树.png" alt="圣诞树" height="500px" id="myimg-1">
+    <img src="../img/袜子.png" alt="袜子" height="500px" id="mying-2">
+
+    <input type="checkbox" id="mycheckbox">
+    <div id="mydiv">
+        文本文档对象模型 Document Object Model 简称 DOM
+    </div>
+
+    <!-- JavaScript -->
+    <script type="text/javascript">
+        // 操作元素标签
+        // 1.操作内容
+        var p_el = document.getElementById("one");
+        // innerText 一般只用于添加文本
+        p_el.innerText = "Hello World";
+        // innerHTML 也能添加文本，但是一般是用来添加HTML元素标签
+        p_el.innerHTML = "rlloedu.com";
+        // 添加其他HTML标签
+        p_el.innerHTML = "<font color='red'>rllo</font>";
+
+        // 2.设置属性
+        var myfont = document.getElementById("myfont");
+        // key value            setAttribute()设置属性
+        myfont.setAttribute("color", "blue");
+        // 获取属性值 value      getAttribute()都用返回值，类型string
+        var fontSize = myfont.getAttribute("size");
+        console.log(typeof (fontSize) + " : " + fontSize);
+
+        // 设置样式(css)
+        myfont.setAttribute("style", "color:#05ccaa;");
+
+        // 修改超链接，图片，复选框，css单独函数
+        // 超链接
+        var mya = document.getElementById("mya");
+        // mya.setAttribute("href", "https://www.rlloedu.com/");
+        // 方式二，直接点属性
+        mya.href = "https://www.rlloedu.com/";
+        // 图片
+        var myimg_1 = document.getElementById("myimg-1");
+        myimg_1.setAttribute("src", "../img/火鸡.png");
+
+        // 复选框
+        var mycheckbox = document.getElementById("mycheckbox");
+        mycheckbox.setAttribute("checked", "true");
+        mycheckbox.removeAttribute("checked")
+
+        // css样式  使用style.
+        var mydiv = document.getElementById("mydiv");
+        mydiv.style.color = "#abdfff";
+
+    </script>
+
+</body>
+
+</html>

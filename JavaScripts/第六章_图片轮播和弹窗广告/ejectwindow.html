@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹窗和关闭</title>
+    <style>
+        #ad {
+            width: 320px;
+            height: 180px;
+            /* 弹窗固定定位 */
+            position: fixed;
+            bottom: 40px;
+            right: 10px;
+            display: none;
+        }
+
+        div>button {
+            /* margin: 5px; */
+            margin-left: 270px;
+            margin-top: 5px;
+        }
+
+        h1 {
+            font-size: 100px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function myInit()
+        {
+            window.setTimeout(showAdvert, 2000);
+        }
+        function showAdvert()
+        {
+            var adForm = document.getElementById("ad");
+            adForm.style.display = "block";
+        }
+        function closeAdvert()
+        {
+            var adForm = document.getElementById("ad");
+            adForm.style.display = "none";
+            window.setTimeout(showAdvert, 1000);
+        }
+
+    </script>
+</head>
+
+<body onload="myInit()">
+    <h1>弹窗在右下角</h1>
+    <div id="ad">
+        <div>
+            <button onclick="closeAdvert()">关闭</button>
+            <a href="https://ys.mihoyo.com/" title="《原神》官方网站-全新3.5版本「风花的呼吸」上线！">
+                <img width="320px" height="180px" src="../img/xioa.jpg" alt="原神官网">
+            </a>
+        </div>
+    </div>
+    <button id="forward-btn" onclick="history.forward()">前进</button>
+    <button id="back-btn" onclick="history.back()">后退</button>
+    <a href="../第七章_JavaScript Window/history.html">下一个页面</a>
+</body>
+
+</html>

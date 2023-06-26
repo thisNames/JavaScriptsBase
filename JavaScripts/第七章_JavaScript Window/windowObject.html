@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 对象</title>
+    <script type="text/javascript">
+
+        function WinObj()
+        {
+            /*
+            对象
+                window      代表整个网页，内容
+                document    代表整个网页文档，位于窗口里的，元素;也是属于window里面
+        */
+            // 此变量是属于 window 对象里的，使用 window. 也能访问到，也可省略 window 访问        
+            var name = "rllo";
+            console.log(window.name);
+            // 属性，方法
+            window.alert("in winddow alert");
+
+            // 弹出确认框   confirm(消息)   返回值 bool
+            console.log(window.confirm("确定要退出此页面吗?"));
+
+            // 弹出输入框   prompt(消息)    返回值输入的字符串
+            console.log(window.prompt("请输入内容"));
+        }
+
+        // 通过 window 创建新的窗口
+        var winState = false;
+        // 打开新窗口   open(地址，窗口名称， 指定窗口的高宽)   返回值一个窗口对象
+        function myOpen()
+        {
+            winState = !winState;
+            console.log(winState);
+            var btn = document.getElementById("open-btn");
+            var WinObj = window.open("https://www.rlloedu.com/", "new_Window", "width=500px,height=500px");
+            if (winState == true)
+            {
+                // 设置窗口大小
+                WinObj.resizeTo(1000, 1000);
+                // 移动位置 x,y
+                WinObj.moveTo(1000, 500);
+                // 关闭窗口
+                // WinObj.close();
+                // 窗口焦点
+                WinObj.focus();
+                btn.innerText = "关闭这个窗口";
+            }
+            else
+            {
+                // 关闭窗口
+                WinObj.close();
+                btn.innerText = "打开一个窗口";
+            }
+        }
+        // screen 和  location 对象
+        // screen   高a vailHeight      属性，可用分辨率高度    (网页的页面的分辨率)
+        console.log(window.screen.availHeight);
+        // screen   宽 availWidth       属性，可用分辨率宽度    (网页的页面的分辨率)
+        console.log(window.screen.availWidth);
+
+        // location 获取当前页面的网址
+        // protocol     获取协议
+        console.log(location.protocol);
+
+        // hostname     主机域名
+        console.log(window.location.hostname);
+
+        // port         获取地址栏端口号，(默认80)
+        console.log(location.port);
+
+        // pathname      网页的完整路径   中文显示16进制
+        console.log(location.pathname);
+
+        // 直接打印对象，会显示出里面所有的键值对
+        console.log(location);
+
+        // 重新指定网址
+        function skipPage()
+        {
+            // 修改当前的网页的地址，跳转到新的地址     自动跳转，相当与重重指定了一个网址
+            location.assign("../第六章_图片轮播和弹窗广告/imageloop.html");
+        }
+
+        // 通过 history 对象控制网页的前进后退
+        function myForward()
+        {
+            // 前进 forward()
+            history.forward();
+            // go(步数) 正数前进步数，负数后退步数
+            // history.go(-1);
+        }
+        function myBack()
+        {
+            // 后退 back()
+            history.back();
+        }
+
+    </script>
+
+    <style>
+        button {
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="myOpen()" id="open-btn">打开一个窗口</button>
+    <button onclick="skipPage()">重重指定网址</button>
+    <button id="forward-btn" onclick="myForward()">前进</button>
+    <button id="back-btn" onclick="myBack()">后退</button>
+
+    <div>
+        <a href="../第六章_图片轮播和弹窗广告/imageloop.html">图片轮播</a>
+        <br>
+        <a href="../第六章_图片轮播和弹窗广告/ejectwindow.html">弹窗案例</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数定义</title>
+    <script type="text/javascript">
+        // 默认是在 windows 的函数
+        window.alert("alert 是 window 里的函数")
+        // 函数定义  关键字：function
+        function myName()
+        {
+            console.log("我是函数体");
+        }
+        // 函数调用
+        myName();
+
+        // 不需要先后顺序
+        dataCheck();
+        function dataCheck()
+        {
+            console.log("数据检验开始");
+            console.log("数据检验中...");
+            console.log("数据检验结束");
+        }
+        // 函数的参数，返回值
+        function add(a, b)
+        {
+            var res = a + b;
+            // console.log(res);
+            return res;//返回值any=
+        }
+        add(100, 20);
+        add(200, 200);
+        console.log("result = " + add(100, 200));
+
+        // 匿名函数
+        console.log("----- 匿名函数 -----");
+        var anaoy = function ()
+        {
+            console.log("我是匿名函数");
+        }
+        anaoy();
+
+        function attack(attackmode)
+        {
+            attackmode();
+            // console.log("近距离攻击！");
+            console.log("HP - 100");
+        }
+        attack(function ()
+        {
+            console.log("使用大剑攻击");
+        })
+        attack(function () { console.log("使用长枪攻击"); });
+
+        // document 重要的 object
+        document.write("hello you!");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

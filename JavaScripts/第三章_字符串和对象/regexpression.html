@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script type="text/javascript">
+        // 规则1    全部是字母的字符串 abc
+        // 规则2    全部是数字的字符串 123
+        // 规则3    以数字开头，长度为4的字符串 1abc
+        // 规则4    第一个字母是a，第二个字母是b，没有其他字符的字符串 ab
+
+        // 搜索 替换 判断
+        console.log("------ 搜索 -----");
+        // 正则表达式主题 / 修饰符
+        // i (表示忽略大小写ignore) ;g(符合的global); m(多行匹配multiple)
+        var p1 = /ab/ig;// ab AB
+        var str1 = "Hello_World_ab_AB_rlloedu.com ab";
+        // 搜索 返回第一个找到的索引位置  
+        console.log(str1.search(p1));
+        console.log(str1.search("AB"));
+
+        //搜索 替换第一个找到的 ，g 全局的
+        console.log("---- 替换 -----");
+        console.log(str1.replace(p1, "12345"));
+
+        console.log("----- 判断 -----");
+        // 正则表达式，判断整个字符串
+        console.log(p1.test(str1));
+
+        // ^开头 $结尾
+        var p2 = /^a$/;
+        console.log(p2.test("a"));
+
+        // []   范围取值
+        var p3 = /^[1-5][a-z]$/; //两个字符
+        console.log(p3.test("1a"));
+
+        console.log("----- 、元字符 -----");
+
+        // \d 代表数字 [0 - 9]
+        var p4 = /\d/;
+        console.log(p4.test("a1a"));
+
+        console.log("----- 正整数 -----");
+        // 开始1 - 9 ，结尾 0 - 9 可有可无 *
+        var p5 = /^[1-9]\d*$/;
+        console.log(p5.test("100"));
+        console.log(p5.test("-10"));
+        console.log(p5.test("299"));
+        console.log(p5.test("3"));
+
+        console.log("----- * 表示前面的可有可无 -----");
+        // * + 量词,表示数量
+        var p6 = /^a+/;
+        console.log(p6.test("a"));
+        console.log(p6.test("aab"));
+        console.log(p6.test("b"));
+        console.log(p6.test("ba"));
+
+        console.log("-----  匹配QQ号 -----");
+        var p7 = /^[1-9][0-9]+$/
+        console.log(p7.test("10"));
+        console.log(p7.test("0"));
+        console.log(p7.test("22265"));
+        console.log(p7.test("100"));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

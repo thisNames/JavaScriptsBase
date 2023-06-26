@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js创建对象</title>
+    <script type="text/javascript">
+        // 创建对象 key value
+        console.log("----- 创建对象 key value -----");
+        var user1 = {
+            name: "钟离",
+            age: 2000,
+            damage: 5000,
+            element: "岩元素"
+        };
+        // get
+        console.log(user1.name);
+        console.log(user1.age);
+        console.log(user1.damage);
+        console.log(user1.element);
+        // set
+        user1.damage = 30000;
+        console.log(user1.damage);
+
+        // 方式二
+        // 创建一个空对象
+        console.log("----- 方式二- ----");
+
+        {
+            var user2 = new Object();
+            // 添加设置 key value
+            user2.name = "胡桃";
+            user2.age = 18;
+            user2.damage = 10000;
+            user2.element = "火元素";
+        }
+        // get
+        console.log(user2.name);
+        console.log(user2.age);
+        console.log(user2.damage);
+        console.log(user2.element);
+        // set
+        user2.damage = 50000;
+        console.log(user2.damage);
+
+        //  使用对象构造器，构造函数 
+        console.log("----- 构造函数 -----");
+        function fuser1(name, age, damage, element)
+        {
+            // 将创入的至赋值到变量 可以动态添加
+            this.name = name;
+            this.age = age;
+            this.damage = damage;
+            this.element = element;
+
+            // 函数变量
+            this.show = show;
+            // 函数定义
+            function show()
+            {
+                console.log("name: " + this.name);
+                console.log("age: " + this.age);
+                console.log("damage: " + this.damage);
+                console.log("element: " + this.element);
+            }
+            // get set 匿名函数
+            this.setAge = function (age)
+            {
+                this.age = age;
+            }
+        }
+        // 创建对象变量
+        var fu1 = new fuser1("刻晴", 20, 10000, "雷元素");
+        var fu2 = new fuser1("烟非", 18, 20000, "火元素");
+        console.log(fu1.name);
+        console.log(fu1.element);
+        console.log(fu2.name);
+        console.log(fu2.element);
+
+        // 对象添加普通函数和对象属性的遍历
+        console.log("----- 对象添加普通函数 -----");
+        // 方式一   直接在构造函数里定义函数 (见57 line)
+        fu1.setAge(19);
+
+        // 动态添加函数f
+        fu1.setDamage = function (damage)
+        {
+            this.damage = damage;;
+        }
+        fu1.setDamage(50000);
+
+        fu1.show();
+        fu2.show();
+
+        console.log("----- 遍历属性 -----");
+        // 通过[key] 字符串
+        console.log(fu1["name"]);
+        console.log(fu2["name"]);
+        // 遍历  key for in  循环，专门遍历对象的，像foreach
+        for (var key in fu1)
+        {
+            console.log(key + ": " + fu1[key]);
+        }
+        for (var key in fu2)
+        {
+            console.log(key + ": " + fu2[key]);
+        }
+
+        for (const key in fu1)
+        {
+            if (Object.hasOwnProperty.call(fu1, key))
+            {
+                const element = fu1[key];
+                console.log(element);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

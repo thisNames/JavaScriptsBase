@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串函数</title>
+    <script type="text/javascript">
+        // 字符串
+        var str = "hello=_world=_ktiiy=";
+
+        // 字符串分割， return 字符串数组
+        var splitArr = str.split("_");
+        console.log(splitArr);
+
+        // 字符串替换，替换首个   return 字符串
+        var replaceArr = str.replace("_", "*");
+        console.log(replaceArr);
+
+        var strNew = [];
+        for (let i = 0; i < splitArr.length; i++)
+        {
+            console.log(splitArr[i].replace("=", "*"));
+            strNew[i] = splitArr[i].replace("=", "*");
+        }
+        console.log(strNew);
+
+        // 字符串数组每个元素连接成一个字符串， join(连接字符,不加默认为 , 号)
+        const strings = strNew.join("\n\n");
+        console.log(strings);
+
+        // 点击测试
+        var count = 0;
+        var countText = null;
+        function myInit()
+        {
+            countText = document.getElementById("count");
+        }
+        function clickTest()
+        {
+            count++;
+            // console.log(count);
+            countText.innerText = count;
+        }
+    </script>
+    <style>
+        button {
+            width: 300px;
+            height: 70px;
+            font-size: 30px;
+        }
+
+        #click {
+            width: 800px;
+            height: 400px;
+            background: linear-gradient(rgb(0, 132, 255), rgb(209, 71, 221));
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        #centent {
+            width: 800px;
+            height: 100px;
+            background: linear-gradient(rgb(209, 71, 221), rgb(12, 180, 247));
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        #input {
+            width: 800px;
+            height: 100px;
+            background-color: rgb(6, 109, 112);
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        #input>input {
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        b {
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="myInit()">
+    <h1>字符串函数</h1>
+    <div id="click">
+        <button onclick="clickTest()">连点测试</button>
+    </div>
+    <div id="centent">
+        <b id="count">000</b>
+    </div>
+    <div id="input">
+        <input type="text">
+    </div>
+</body>
+
+</html>

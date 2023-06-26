@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 循环语句</title>
+    <script type="text/javascript">
+
+        // 循环体 while 
+        console.log("----- 循环体 while ------");
+        var i = 0;
+        while (i < 10)
+        {
+            console.log(i);
+            i++;
+        }
+        console.log("i = " + i);
+        while (i > 0)
+        {
+            console.log(i);
+            i--;
+        }
+
+        // break continue
+        console.log("----- break -----");
+        for (var i = 0; i < 10; i++)
+        {
+            if (i == 5)
+            {
+                console.log("break " + i);
+                break;//中断整个循环
+            }
+            console.log(i);
+        }
+        for (var i = 0; i < 10; i++)
+        {
+            if (i == 5)
+            {
+                console.log("continue " + i);
+                continue;//结束当前循环
+            }
+            console.log(i);
+        }
+        console.log("------------");
+
+        var a = 5;
+        while (a > 0)
+        {
+            a--
+            if (a == 2)
+                continue
+            console.log(a);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

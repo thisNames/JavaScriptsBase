@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 语句</title>
+    <script type="text/javascript">
+
+        // 流程控制 switch case default  (明显判断一般使用 switch)
+        var season = 1;
+
+        switch (season)
+        {
+            case 1:
+                console.log("春季");
+                break;
+            case 2:
+                console.log("夏季");
+                break;
+            case 3:
+                console.log("秋季");
+                break;
+            case 4:
+                console.log("冬季");
+                break;
+            default:
+                console.log("参数错误，1-4");
+                break;
+        }
+
+        var score = 80;//优秀80-100 良好60-70 <60差 (区间判定一般使用if)        
+
+        var month = 13 - 3;
+        var day = 0;
+        switch (month)
+        {
+            case 1:
+                day += 31;
+            case 2:
+                day += 28;
+            case 3:
+                day += 31;
+            case 4:
+                day += 30;
+            case 5:
+                day += 31;
+            case 6:
+                day += 30;
+            case 7:
+                day += 31;
+            case 8:
+                day += 31;
+            case 9:
+                day += 30;
+            case 10:
+                day += 31;
+            case 11:
+                day += 30;
+            case 12:
+                day += 31;
+                break;
+            default:
+                console.log("没有这个月");
+                break;
+        }
+        console.log(day);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选功能</title>
+    <script type="text/javascript">
+
+        // 全选复选框
+        function selectAll(choiceBtn)
+        {
+            console.log(choiceBtn.checked);
+            // 获取页面所有的 input 复选框 ，通过 name 属性
+            var allChecked = document.getElementsByName("choice");
+            console.log("以收集到的复选框个数：" + allChecked.length);
+            for (let i = 0; i < allChecked.length; i++)
+            {
+                allChecked[i].checked = choiceBtn.checked;
+            }
+        }
+    </script>
+    <style>
+        table {
+            margin: 0 auto;
+            width: 800px;
+            height: 500px;
+            border: 3px solid;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        tr>td {
+            /* background-color: rgb(94, 94, 94); */
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <input type="checkbox" name="select-all" onclick="selectAll(this)">全选
+            </td>
+            <td>用户名</td>
+            <td>邮箱</td>
+            <td>电话号码</td>
+            <td>性别</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="choice"></td>
+            <td>Kitty</td>
+            <td>12312424.@qq.com</td>
+            <td>18877305825</td>
+            <td>男</td>
+            <td>发邮件 封号 编辑</td>
+        </tr>
+    </table>
+</body>
+
+</html>
